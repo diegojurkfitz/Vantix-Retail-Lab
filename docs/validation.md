@@ -71,6 +71,28 @@
 ### Terraform state
 - 13 recursos gerenciados + 5 data sources = 18 entradas em `terraform state list`.
 
+## Evidências visuais
+
+Screenshots em `docs/screenshots/` (prefixo `vantix-retail-cloud-lab-`). Foram
+capturadas múltiplas evidências (`Evidencia_N_...`) por recurso, cobrindo
+diferentes telas/abas do console AWS.
+
+| Evidência | Screenshots | Comprova |
+|-----------|-------------|----------|
+| Identidade / profile AWS | `Evidencia_1_Profile_AWS.png` | Conta `473247068706` / profile `terraform-lab` |
+| `terraform validate` | `Evidencia_1_Terraform_Validate.png` | Configuração válida |
+| Git status | `Evidencia_1_Git_Status.png` | Estado do repositório |
+| VPC | `Evidencia_1_VPC.png` … `Evidencia_5_VPC.png` | VPC `vpc-01aada4390b333cf0`, CIDR `10.0.0.0/16` |
+| Subnet | `Evidencia_1_Subnet.png` … `Evidencia_4_Subnet.png` | Subnet privada `10.0.1.0/24`, us-east-1a |
+| Route Table | `Evidencia_1_Route_Table.png` … `Evidencia_5_Route_Table.png` | Rota apenas `local` (sem IGW/NAT) |
+| S3 Bucket | `Evidencia_1_BucketS3.png` … `Evidencia_8_BucketS3.png` | Bucket privado, BPA, SSE-S3, vazio |
+| IAM Role / Policy | `Evidencia_1_IAM_Role_Lambda.png` … `Evidencia_6_IAM_Role_Lambda.png` | Role + policy least privilege |
+| Lambda | `Evidencia_1_LAMBDA.png` … `Evidencia_8_LAMBDA.png` | Função `...-fn`, python3.12, fora da VPC |
+
+> As telas de VPC, subnet, route table, S3, IAM e Lambda mostram nome do
+> recurso, região `us-east-1` e configurações relevantes, comprovando o
+> provisionamento real do ambiente.
+
 ## Custo
 - Nenhum recurso com cobrança horária de infraestrutura foi criado.
 - S3 vazio, Lambda não invocada, CloudWatch sem logs (retenção 1 dia).
