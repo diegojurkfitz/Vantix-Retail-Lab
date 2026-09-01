@@ -1,0 +1,28 @@
+$ terraform apply "lab.tfplan"
+
+Apply complete! Resources: 13 added, 0 changed, 0 destroyed.
+
+Outputs:
+account_id           = "473247068706"
+iam_role_arn         = "arn:aws:iam::473247068706:role/vantix-retail-cloud-lab-lab-lambda-role"
+lambda_function_name = "vantix-retail-cloud-lab-lab-fn"
+region               = "us-east-1"
+route_table_id       = "rtb-0372a309f6b09e529"
+s3_bucket_name       = "vantix-retail-cloud-lab-lab-07f8c397"
+subnet_id            = "subnet-0a670fa964b3ec081"
+vpc_id               = "vpc-01aada4390b333cf0"
+
+Recursos criados (13):
+- random_id.bucket_suffix
+- aws_vpc.this                                   (vpc-01aada4390b333cf0)
+- aws_subnet.private                             (subnet-0a670fa964b3ec081)
+- aws_route_table.private                        (rtb-0372a309f6b09e529)
+- aws_route_table_association.private
+- aws_s3_bucket.app                              (vantix-retail-cloud-lab-lab-07f8c397)
+- aws_s3_bucket_public_access_block.app
+- aws_s3_bucket_ownership_controls.app
+- aws_s3_bucket_server_side_encryption_configuration.app
+- aws_iam_role.lambda                            (vantix-retail-cloud-lab-lab-lambda-role)
+- aws_iam_role_policy.lambda                     (least-privilege inline)
+- aws_cloudwatch_log_group.lambda                (/aws/lambda/vantix-retail-cloud-lab-lab-fn)
+- aws_lambda_function.app                         (vantix-retail-cloud-lab-lab-fn)

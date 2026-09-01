@@ -1,0 +1,8 @@
+﻿account_id = "473247068706"
+iam_role_arn = "arn:aws:iam::473247068706:role/vantix-retail-cloud-lab-lab-lambda-role"
+lambda_function_name = "vantix-retail-cloud-lab-lab-fn"
+region = "us-east-1"
+route_table_id = "rtb-0372a309f6b09e529"
+s3_bucket_name = "vantix-retail-cloud-lab-lab-07f8c397"
+subnet_id = "subnet-0a670fa964b3ec081"
+vpc_id = "vpc-01aada4390b333cf0"
