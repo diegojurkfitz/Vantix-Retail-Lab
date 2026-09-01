@@ -25,7 +25,7 @@ A **Lambda permanece fora da VPC de forma intencional**: a VPC, a subnet e a rou
 - **Terraform**: IaC reprodutível e versionada.
 - **Isolamento**: VPC/subnet/route table representam o princípio de rede do Bloco 1 sem recursos pagos.
 - **IAM least privilege**: permissões restritas a serviço, ação e recurso específicos.
-- **Compute (Lambda)**: sem custo de ociosidade, ideal para um lab que não precisa de capacidade permanente.
+- **Compute (Lambda)**: representa bem o componente de checkout do Bloco 1 — tem **scaling nativo** (concorrência gerenciada pela AWS) e **não exige manter servidores ligados**, portanto sem custo por ociosidade. Ideal para um lab que não precisa de capacidade permanente.
 - **S3**: storage de objetos privado e criptografado, mantido vazio.
 - **Tags**: governança e FinOps (Bloco 2).
 - **Objetivo de custo R$ 0 / simplicidade**: menor conjunto de recursos capaz de demonstrar os conceitos.
@@ -46,4 +46,4 @@ A **Lambda permanece fora da VPC de forma intencional**: a VPC, a subnet e a rou
 
 ## O que faltaria para produção (Bloco 1)
 
-ALB, ECS/Fargate, múltiplas AZs, RDS PostgreSQL Multi-AZ, RDS Proxy, ElastiCache, SQS, WAF, CloudFront, Secrets Manager, observabilidade (OpenTelemetry), autoscaling e DR / Warm Standby.
+Este é um **laboratório mínimo, não uma arquitetura de produção completa**. Para produção seriam adicionados: WAF, CloudFront, ALB ou API Gateway (conforme o cenário de exposição), endpoints privados (VPC Endpoints) quando necessários, ECS/Fargate para containers, múltiplas AZs, RDS PostgreSQL Multi-AZ + RDS Proxy, ElastiCache, SQS, Secrets Manager, observabilidade mais completa (OpenTelemetry), alta disponibilidade regional, autoscaling e mecanismos de DR (Warm Standby).
