@@ -47,3 +47,7 @@ A **Lambda permanece fora da VPC de forma intencional**: a VPC, a subnet e a rou
 ## O que faltaria para produção (Bloco 1)
 
 Este é um **laboratório mínimo, não uma arquitetura de produção completa**. Para produção seriam adicionados: WAF, CloudFront, ALB ou API Gateway (conforme o cenário de exposição), endpoints privados (VPC Endpoints) quando necessários, ECS/Fargate para containers, múltiplas AZs, RDS PostgreSQL Multi-AZ + RDS Proxy, ElastiCache, SQS, Secrets Manager, observabilidade mais completa (OpenTelemetry), alta disponibilidade regional, autoscaling e mecanismos de DR (Warm Standby).
+
+## Status do ambiente
+
+O laboratório foi provisionado, validado e destruído ao final da execução. O `terraform destroy` removeu os 13 recursos gerenciados pelo laboratório, e a validação pós-destroy confirmou o state vazio e a ausência dos recursos do laboratório na AWS. As evidências estão disponíveis em `docs/evidence/` e `docs/validation.md`.
