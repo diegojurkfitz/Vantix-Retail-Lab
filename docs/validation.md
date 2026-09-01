@@ -99,4 +99,18 @@ diferentes telas/abas do console AWS.
 - Objetivo de custo R$ 0; custo efetivo depende das condições de cobrança da conta.
 
 ## Destroy
-- (a ser preenchido após `terraform destroy`).
+- Identidade revalidada antes do destroy: Account `473247068706`, `AWS_PROFILE` vazio.
+- `terraform destroy -auto-approve`: `Destroy complete! Resources: 13 destroyed.`
+
+### Validação pós-destroy (somente leitura)
+- `terraform state list`: **vazio** (nenhum recurso gerenciado).
+- VPC `vpc-01aada4390b333cf0`: `describe-vpcs` exit 254 (removida).
+- Subnet `subnet-0a670fa964b3ec081`: `describe-subnets` exit 254 (removida).
+- Route Table `rtb-0372a309f6b09e529`: `describe-route-tables` exit 254 (removida).
+- S3 `vantix-retail-cloud-lab-lab-07f8c397`: `head-bucket` exit 254 (removido).
+- IAM Role `...-lambda-role`: `get-role` NoSuchEntity / exit 254 (removida).
+- Lambda `...-fn`: `get-function` ResourceNotFound / exit 254 (removida).
+- Log Group `/aws/lambda/...-fn`: `describe-log-groups` length 0 (removido).
+
+**Conclusão:** nenhum recurso residual; nenhuma infraestrutura paga permanece ativa.
+Evidências: `evidence/07-destroy-summary.txt`, `evidence/08-post-destroy-validation.txt`.

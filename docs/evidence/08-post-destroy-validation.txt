@@ -1,0 +1,16 @@
+Validação pós-destroy (somente leitura)
+
+$ terraform state list
+(vazio) -> nenhum recurso gerenciado no state
+
+Consultas AWS CLI (exit != 0 / count 0 = recurso inexistente):
+
+VPC        vpc-01aada4390b333cf0     -> describe-vpcs        exit 254 (removida)
+Subnet     subnet-0a670fa964b3ec081  -> describe-subnets     exit 254 (removida)
+RouteTable rtb-0372a309f6b09e529     -> describe-route-tables exit 254 (removida)
+S3         vantix-retail-cloud-lab-lab-07f8c397 -> head-bucket exit 254 (removido)
+IAM Role   vantix-retail-cloud-lab-lab-lambda-role -> get-role exit 254 / NoSuchEntity (removida)
+Lambda     vantix-retail-cloud-lab-lab-fn -> get-function exit 254 / ResourceNotFound (removida)
+Log Group  /aws/lambda/vantix-retail-cloud-lab-lab-fn -> describe-log-groups length=0 (removido)
+
+Conclusão: nenhum recurso residual do laboratório. Nenhuma infraestrutura paga ativa.

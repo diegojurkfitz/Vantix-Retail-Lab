@@ -10,6 +10,8 @@ Saídas reais capturadas durante a execução do laboratório (Bloco 4).
 | `04-apply-state-list.txt` | `terraform state list` após o apply |
 | `05-outputs.txt` | `terraform output` |
 | `06-apply-summary.txt` | Resumo do `terraform apply` (13 added) |
+| `07-destroy-summary.txt` | Resumo do `terraform destroy` (13 destroyed) |
+| `08-post-destroy-validation.txt` | Validação pós-destroy (state vazio + AWS CLI) |
 
 ## Como as evidências se relacionam
 
@@ -30,4 +32,4 @@ O mesmo recurso é comprovado em três camadas complementares:
 - Pipeline completo e validações detalhadas: ver `../validation.md`.
 - Screenshots do console AWS: `../screenshots/` (38 arquivos, prefixo `vantix-retail-cloud-lab-Evidencia_N_...`).
 
-As evidências de `destroy` e a validação pós-destroy serão adicionadas ao final do laboratório.
+Evidências de `destroy` e validação pós-destroy: `07-destroy-summary.txt` e `08-post-destroy-validation.txt` (detalhes também em `../validation.md`). Ambiente completamente destruído, sem recursos residuais.

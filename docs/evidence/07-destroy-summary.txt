@@ -1,0 +1,23 @@
+$ terraform destroy -auto-approve
+
+(identidade revalidada antes do destroy)
+AWS_PROFILE=[]  Account=473247068706  Arn=arn:aws:iam::473247068706:user/terraform-lab
+
+Plan: 0 to add, 0 to change, 13 to destroy.
+
+Destroy complete! Resources: 13 destroyed.
+
+Recursos destruídos (13):
+- aws_route_table_association.private
+- aws_lambda_function.app
+- aws_s3_bucket_server_side_encryption_configuration.app
+- aws_s3_bucket_public_access_block.app
+- aws_s3_bucket_ownership_controls.app
+- aws_iam_role_policy.lambda
+- aws_s3_bucket.app
+- random_id.bucket_suffix
+- aws_iam_role.lambda
+- aws_subnet.private
+- aws_cloudwatch_log_group.lambda
+- aws_route_table.private
+- aws_vpc.this
