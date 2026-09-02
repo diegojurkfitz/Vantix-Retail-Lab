@@ -4,6 +4,8 @@
 
 Laboratório do Bloco 4. Implementa **uma pequena parte** da arquitetura de checkout proposta no Bloco 1, com foco em qualidade técnica, segurança e **objetivo de custo R$ 0** — não em reproduzir o ambiente de produção.
 
+> O lab usa a região `us-east-1` por conveniência do exercício; a arquitetura de produção do Bloco 1 permanece em `sa-east-1`.
+
 ## O que foi construído
 
 - 1 VPC isolada (`10.0.0.0/16`), sem Internet/NAT Gateway
@@ -39,7 +41,7 @@ A **Lambda permanece fora da VPC de forma intencional**: a VPC, a subnet e a rou
 
 ## FinOps
 
-- **Objetivo de custo: R$ 0.** O laboratório não utiliza recursos com cobrança horária de infraestrutura. Serviços com cobrança por uso serão mantidos sem armazenamento, tráfego ou execução desnecessária. O custo efetivo depende das condições de cobrança da conta AWS.
+- **Objetivo de custo: R$ 0.** Em vez de depender das franquias do free tier (limitadas e sem garantia de faturamento zero), o lab prioriza recursos sem cobrança por hora de existência (VPC, subnet, route table, IAM) e serviços cuja cobrança depende de uso efetivo (S3, Lambda, CloudWatch), mantidos sem armazenamento, tráfego ou execução desnecessária. O custo efetivo depende das condições de cobrança da conta AWS.
 - Sem NAT Gateway, ALB/NLB, EC2, RDS, ElastiCache e demais recursos pagos.
 - Ambiente mínimo, bucket vazio e Lambda não invocada em loop.
 - Tags de custo e **destruição após os testes** (`terraform destroy`).
